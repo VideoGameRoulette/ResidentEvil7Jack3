@@ -43,12 +43,15 @@ function appendData(data) {
 
 	var filterdEnemies = data.EnemyHealth.filter(m => { return m.MaximumHP == 30000 });
 	filterdEnemies.sort(function (a, b) { return Asc(a.Percentage, b.Percentage) || Desc(a.CurrentHP, b.CurrentHP); }).forEach(function (item, index, arr) {
-		if (item.IsAlive) {
-			mainContainer.innerHTML += `<div class="tag"><i class="fas fa-skull"></i></div><div id="valueBoss"><font size="4" color="#ff0000">${item.CurrentHP}</font></div>`
+		if (data.MapName.includes("Boss2FBefore01A") || data.MapName.includes("Boat1FBoss01"))
+		{
+			if (item.IsAlive) {
+				mainContainer.innerHTML += `<div class="tag"><i class="fas fa-skull"></i></div><div id="valueBoss"><font size="4" color="#ff0000">${item.CurrentHP}</font></div>`
+			}
 		}
 	});
 
-	if (data.MapName.includes("Boss2F") || data.MapName.includes("Boat1FBoss01"))
+	if (data.MapName.includes("Boss2FBefore01A") || data.MapName.includes("Boat1FBoss01"))
 	{
 		console.log("Jack 3 Fight Started...");
 		data.JackEyeHealth.sort(function (a, b) { return Desc(a.CurrentHP, b.CurrentHP); }).forEach(function (item, index) {
