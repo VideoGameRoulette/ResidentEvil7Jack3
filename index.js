@@ -48,7 +48,7 @@ function appendData(data) {
 		}
 	});
 
-	if (data.MapName.includes("Boss2F") || data.MapName.includes("Boss1F"))
+	if (data.MapName.includes("Boss2F") || data.MapName.includes("Boat1FBoss01"))
 	{
 		console.log("Jack 3 Fight Started...");
 		data.JackEyeHealth.sort(function (a, b) { return Desc(a.CurrentHP, b.CurrentHP); }).forEach(function (item, index) {
